@@ -43,7 +43,7 @@ def get_args_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument("-j", "--apps-json", type=str, default=None)
     parser.add_argument("-b", "--bench-name", type=str, default="development-bench")
-    parser.add_argument("-s", "--site-name", type=str, default="development.cohenix")
+    parser.add_argument("-s", "--site-name", type=str, default="development.divine")
     parser.add_argument("-r", "--frappe-repo", type=str, default=f"https://github.com/frappe/frappe.git")
     parser.add_argument("-t", "--frappe-branch", type=str, default="develop")
     parser.add_argument("-p", "--py-version", type=str, default=None)
