@@ -42,6 +42,6 @@
   "workspaceFolder": "/workspace",
   "shutdownAction": "stopCompose",
   "postCreateCommand": {
-    "initDevSite": ["python", "installer.py", "--db-type", "mariadb"]
+    // "initDevSite": ["python", "installer.py", "--db-type", "mariadb"]
   }
 }
