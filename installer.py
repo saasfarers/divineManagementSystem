@@ -87,24 +87,24 @@ def init_bench_if_not_exist(args):
         run_subprocess(["bench", "set-config", "-g", key, value], cwd=os.path.join(os.getcwd(), args.bench_name))
 
 def create_site_in_bench(args):
-    token = os.getenv("DEVELOPER_TOKEN")
-    apps_to_get = [
-        ("payments", f"https://github.com/frappe/payments.git", "develop"),
-        ("erpnext", f"https://github.com/frappe/erpnext.git", "develop"),
-        ("hrms", f"https://github.com/frappe/hrms.git", "develop"),
-        ("telephony", f"https://github.com/frappe/telephony.git", "develop"),
-        ("crm", f"https://github.com/frappe/crm.git", "develop"),
-        ("helpdesk", f"https://github.com/frappe/helpdesk.git", "develop"),
-        ("lms", f"https://github.com/frappe/lms.git", "develop"),
-    ]
+    # token = os.getenv("DEVELOPER_TOKEN")
+    # apps_to_get = [
+    #     ("payments", f"https://github.com/frappe/payments.git", "develop"),
+    #     ("erpnext", f"https://github.com/frappe/erpnext.git", "develop"),
+    #     ("hrms", f"https://github.com/frappe/hrms.git", "develop"),
+    #     ("telephony", f"https://github.com/frappe/telephony.git", "develop"),
+    #     ("crm", f"https://github.com/frappe/crm.git", "develop"),
+    #     ("helpdesk", f"https://github.com/frappe/helpdesk.git", "develop"),
+    #     ("lms", f"https://github.com/frappe/lms.git", "develop"),
+    # ]
 
     # Fetch apps
-    for app_name, app_repo, app_branch in apps_to_get:
-        cprint(f"Fetching app {app_name} ...", level=2)
-        run_subprocess(
-            ["bench", "get-app", "--branch", app_branch, app_repo],
-            cwd=os.path.join(os.getcwd(), args.bench_name),
-        )
+    # for app_name, app_repo, app_branch in apps_to_get:
+    #     cprint(f"Fetching app {app_name} ...", level=2)
+    #     run_subprocess(
+    #         ["bench", "get-app", "--branch", app_branch, app_repo],
+    #         cwd=os.path.join(os.getcwd(), args.bench_name),
+    #     )
 
     # Create site properly
     db_host = "mariadb" if args.db_type == "mariadb" else "postgresql"
@@ -127,12 +127,12 @@ def create_site_in_bench(args):
     )
 
     # Install apps
-    for app_name, _, _ in apps_to_get:
-        cprint(f"Installing app {app_name} ...", level=2)
-        run_subprocess(
-            ["bench", "--site", args.site_name, "install-app", app_name],
-            cwd=os.path.join(os.getcwd(), args.bench_name),
-        )
+    # for app_name, _, _ in apps_to_get:
+    #     cprint(f"Installing app {app_name} ...", level=2)
+    #     run_subprocess(
+    #         ["bench", "--site", args.site_name, "install-app", app_name],
+    #         cwd=os.path.join(os.getcwd(), args.bench_name),
+    #     )
 
     cprint("Set site developer_mode", level=3)
     run_subprocess(
